@@ -1,54 +1,54 @@
-import { View, Text, SafeAreaView, Dimensions, TextInput, Button, Image } from 'react-native'
+import { View, Text, Image, KeyboardAvoidingView } from 'react-native'
 import React from 'react'
-const { width, height } = Dimensions.get('window')
+import styles from './Loginstyle';
+import TextInput from '../../components/Textinput';
+import Button from '../../components/Button';
 
 export default function Login() {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#fac020", justifyContent: 'center', alignItems: 'center' }}>
-            <Image source={require('../../images/2.png')} style={{ width: 110, height: 100 }} />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.container}
+        >
+            <Image source={require('../../images/4.webp')} style={styles.imgcontainer} />
 
-            <View style={{ backgroundColor: 'white', width: width - 40, height: height / 2, justifyContent: 'center' }}>
-
-                <TextInput
-                    style={{
-                        height: 40,
-                        margin: 12,
-                        // borderWidth: 1,
-                        padding: 10,
-                        borderRadius: 10,
-                        borderColor: "gray",
-                        backgroundColor: "#fac020"
-
-                    }}
-                    label="Username"
-                    mode="flat"
-                    keyboardType="phone-pad"
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="useless placeholder"
-                // keyboardType="numeric"
+            <View style={{ marginLeft: 20, marginRight: 20, }}>
+                <TextInput label="Email"
                 />
 
-                <TextInput
-                    style={{
-                        height: 40,
-                        margin: 12,
-                        borderWidth: 1,
-                        padding: 10,
-                    }}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="useless placeholder"
-                    keyboardType="numeric"
+                <TextInput label="Password"
                 />
-                <Button
-                    //   onPress={onPressLearnMore}
-                    title="Learn More"
-                    color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
-                />
+                <View style={styles.bodycontainer}>
+                    <View>
+                        {/* <Text style={styles.signuptext}>Sign Up</Text> */}
+                    </View>
+
+                    {/* <View> */}
+                    <Text style={styles.forgotpasstext}>Forgot Your Password?</Text>
+                    {/* </View> */}
+                </View>
+
+                <Button label='Login' />
             </View>
 
-        </SafeAreaView>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, marginLeft: 20, marginRight: 20 }}>
+                <View style={{ flex: 1, height: 1, backgroundColor: 'white', }} />
+                <View>
+                    <Text style={{ width: 50, textAlign: 'center', color: 'white', fontFamily: 'NotoSerifGeorgian-VariableFont_wdth,wght' }}>OR</Text>
+                </View>
+                <View style={{ flex: 1, height: 1, backgroundColor: 'white' }} />
+            </View>
+
+            <View style={{ marginLeft: 20, marginRight: 20 }}>
+                <Button label=' Sign in with google' icon='google' />
+            </View>
+
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
+                <Text style={{ fontFamily: 'NotoSerifGeorgian-VariableFont_wdth,wght', fontSize: 15, color: 'white' }}>
+                    Already Have an account? <Text style={{ fontWeight: 'bold', fontFamily: "NotoSerifGeorgian-VariableFont_wdth,wght" }}>SignUp</Text>
+                </Text>
+            </View>
+
+        </KeyboardAvoidingView>
     )
 }

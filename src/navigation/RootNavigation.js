@@ -2,7 +2,6 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import BottomNavigation from './BottomNavigation'
 import { createStackNavigator, } from '@react-navigation/stack';
-import OnboardingScreen from './OnBoradingScreen';
 const Stack = createStackNavigator();
 
 export default function RootNavigation() {
@@ -19,6 +18,8 @@ export default function RootNavigation() {
                 component={BottomNavigation}
                 options={{ headerShown: false }}
             />
+
+
 
             {/* <Stack.Screen
                 name="Home"

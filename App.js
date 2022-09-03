@@ -21,8 +21,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigation from './src/navigation/RootNavigation';
 import { createStackNavigator, } from '@react-navigation/stack';
-import OnboardingScreen from './src/navigation/OnBoradingScreen';
+import OnboardingScreenMain from './src/navigation/OnboardingScreenMain';
 import Login from './src/view/Login';
+import Signup from './src/view/SignUp'
 const Stack = createStackNavigator();
 
 const Drawer = createDrawerNavigator();
@@ -35,13 +36,19 @@ const App = () => {
 
         <Stack.Screen
           name="onboard"
-          component={OnboardingScreen}
+          component={OnboardingScreenMain}
           options={{ headerShown: false }}
         />
 
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
           options={{ headerShown: false }}
         />
 
